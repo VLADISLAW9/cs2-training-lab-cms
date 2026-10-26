@@ -1,0 +1,90 @@
+{
+  "kind": "collectionType",
+  "collectionName": "scripts",
+  "info": {
+    "singularName": "script",
+    "pluralName": "scripts",
+    "displayName": "Script"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "map": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::map.map"
+    },
+    "side": {
+      "type": "enumeration",
+      "enum": [
+        "t",
+        "ct",
+        "both"
+      ],
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "solo",
+        "spawn",
+        "timing",
+        "utility-combo",
+        "other"
+      ],
+      "required": true
+    },
+    "difficulty": {
+      "type": "enumeration",
+      "enum": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "required": true
+    },
+    "zone": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::map-zone.map-zone"
+    },
+    "spawnLabel": {
+      "type": "string",
+      "required": false
+    },
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "relatedGrenades": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::grenade.grenade"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "maps",
+  "info": {
+    "singularName": "map",
+    "pluralName": "maps",
+    "displayName": "Map"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "isActive": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

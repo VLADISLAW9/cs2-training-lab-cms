@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "grenades",
+  "info": {
+    "singularName": "grenade",
+    "pluralName": "grenades",
+    "displayName": "Grenade"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "map": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::map.map"
+    },
+    "grenadeType": {
+      "type": "enumeration",
+      "enum": [
+        "smoke",
+        "flash",
+        "molotov",
+        "he"
+      ],
+      "required": true
+    },
+    "side": {
+      "type": "enumeration",
+      "enum": [
+        "t",
+        "ct",
+        "both"
+      ],
+      "required": true
+    },
+    "fromZone": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::map-zone.map-zone"
+    },
+    "targetZone": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::map-zone.map-zone"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    }
+  }
+}
